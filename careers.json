@@ -1,0 +1,62 @@
+{
+    "Technology Careers": [
+    {
+        "id": "software_engineer",
+        "title": "Software Engineer",
+        "interests": ["Coding", "Problem Solving"],
+        "description": "Responsible for designing, developing, and maintaining software applications."
+    },
+    {
+        "id": "data_scientist",
+        "title": "Data Scientist",
+        "interests": ["Statistics", "Machine Learning"],
+        "description": "Responsible for analyzing and interpreting complex data to help drive business decisions."
+    },
+    {
+        "id": "artificial_intelligence_engineer",
+        "title": "Artificial Intelligence Engineer",
+        "interests": ["Machine Learning", "Deep Learning"],
+        "description": "Responsible for developing and implementing AI algorithms and models."
+    },
+    {
+        "id": "ux_designer",
+        "title": "UX Designer",
+        "interests": ["User Research", "Prototyping"],
+        "description": "Responsible for creating intuitive and engaging user experiences."
+    }
+    ],
+    "Medicine Careers": [
+    {
+        "id": "Doctor",
+        "title": "Doctor",
+        "interests": ["Patient Care", "Medical Research"],
+        "description": "Responsible for diagnosing and treating patients."
+    },
+    {
+        "id": "Nurse",
+        "title": "Nurse",
+        "interests": ["Patient Care", "Clinical Skills"],
+        "description": "Responsible for providing direct patient care and support."
+    },
+    {
+        "id": "Psychologist",
+        "title": "Psychologist",
+        "interests": ["Human Behavior", "Therapy"],
+        "description": "Responsible for studying and treating mental health conditions."
+    }
+    ],
+    "Creative Arts Careers": [
+    {
+        "id": "Graphic Designer",
+        "title": "Graphic Designer",
+        "interests": ["Visual Arts", "Branding"],
+        "description": "Responsible for creating visual concepts and designs for various media."
+    },
+    {
+        "id": "Writer",
+        "title": "Writer",
+        "interests": ["Storytelling", "Content Creation"],
+        "description": "Responsible for creating written content for various platforms."
+    }
+    ]
+}
