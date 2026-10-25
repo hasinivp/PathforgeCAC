@@ -1,0 +1,67 @@
+{
+	"title": "Career Choices Quiz",
+	"description": "Choose the option that sounds most appealing to you. Your answers can help identify career areas to explore.",
+	"questions": [
+		{
+			"id": "q1",
+			"question": "Which activity would you most enjoy?",
+			"choices": [
+				{ "id": "a", "text": "Designing an app, website, or product", "careerAreas": ["technology", "design"] },
+				{ "id": "b", "text": "Helping someone solve a personal or health challenge", "careerAreas": ["healthcare", "social-services"] },
+				{ "id": "c", "text": "Building or repairing something hands-on", "careerAreas": ["engineering", "skilled-trades"] },
+				{ "id": "d", "text": "Planning a project or organizing a team", "careerAreas": ["business", "management"] }
+			]
+		},
+		{
+			"id": "q2",
+			"question": "What kind of problem do you like working on?",
+			"choices": [
+				{ "id": "a", "text": "Finding patterns in information or data", "careerAreas": ["technology", "research"] },
+				{ "id": "b", "text": "Understanding what people need and how to support them", "careerAreas": ["education", "social-services"] },
+				{ "id": "c", "text": "Figuring out how a machine, system, or structure works", "careerAreas": ["engineering", "skilled-trades"] },
+				{ "id": "d", "text": "Finding a creative way to communicate an idea", "careerAreas": ["arts", "marketing"] }
+			]
+		},
+		{
+			"id": "q3",
+			"question": "Which work setting appeals to you most?",
+			"choices": [
+				{ "id": "a", "text": "A collaborative office or remote team", "careerAreas": ["business", "technology"] },
+				{ "id": "b", "text": "A school, clinic, or community organization", "careerAreas": ["education", "healthcare", "social-services"] },
+				{ "id": "c", "text": "A workshop, construction site, or outdoor location", "careerAreas": ["skilled-trades", "environment"] },
+				{ "id": "d", "text": "A studio, newsroom, or performance space", "careerAreas": ["arts", "media"] }
+			]
+		},
+		{
+			"id": "q4",
+			"question": "What would you most like to learn?",
+			"choices": [
+				{ "id": "a", "text": "Programming, cybersecurity, or data analysis", "careerAreas": ["technology", "research"] },
+				{ "id": "b", "text": "Teaching, counseling, or patient care", "careerAreas": ["education", "healthcare", "social-services"] },
+				{ "id": "c", "text": "Electricity, mechanics, or sustainable construction", "careerAreas": ["engineering", "skilled-trades", "environment"] },
+				{ "id": "d", "text": "Writing, visual design, or digital storytelling", "careerAreas": ["arts", "media", "marketing"] }
+			]
+		},
+		{
+			"id": "q5",
+			"question": "Which contribution would make you feel most satisfied?",
+			"choices": [
+				{ "id": "a", "text": "Creating a useful tool or improving a system", "careerAreas": ["technology", "engineering"] },
+				{ "id": "b", "text": "Making a meaningful difference in someone's life", "careerAreas": ["healthcare", "education", "social-services"] },
+				{ "id": "c", "text": "Making or fixing something people can rely on", "careerAreas": ["skilled-trades", "engineering"] },
+				{ "id": "d", "text": "Sharing an original idea with an audience", "careerAreas": ["arts", "media", "marketing"] }
+			]
+		},
+		{
+			"id": "q6",
+			"question": "How do you prefer to approach a new task?",
+			"choices": [
+				{ "id": "a", "text": "Research it, analyze the details, and test ideas", "careerAreas": ["technology", "research"] },
+				{ "id": "b", "text": "Talk with people and understand their perspectives", "careerAreas": ["education", "healthcare", "social-services"] },
+				{ "id": "c", "text": "Try it hands-on and learn by doing", "careerAreas": ["skilled-trades", "engineering"] },
+				{ "id": "d", "text": "Brainstorm several possibilities and shape a fresh solution", "careerAreas": ["design", "arts", "marketing"] }
+			]
+		}
+	],
+	"resultsNote": "Count the career areas associated with your selected choices. Treat the most frequent areas as starting points for further exploration, not as a definitive career recommendation."
+}
