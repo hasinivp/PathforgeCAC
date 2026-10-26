@@ -1,44 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{% block title %}Pathforge CAC{% endblock %}</title>
-	<style>
-		/* Shared typography, colors, and element sizing. */
-		:root { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #172033; background: #f4f7fb; }
-		* { box-sizing: border-box; }
-		/* Center the page layout and style its header and navigation. */
-		body { margin: 0; min-height: 100vh; }
-		header { background: #fff; border-bottom: 1px solid #e2e8f0; }
-		.bar, main, footer { width: min(100% - 2rem, 1100px); margin: 0 auto; }
-		.bar { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-		.brand { color: inherit; font-weight: 700; font-size: 1.15rem; text-decoration: none; }
-		nav { display: flex; flex-wrap: wrap; gap: 1rem; }
-		nav a { color: #475569; text-decoration: none; }
-		nav a:hover { color: #1d4ed8; }
-		/* Main content panel and footer spacing. */
-		main { padding: 2rem 0; }
-		.content { min-height: 240px; padding: clamp(1.25rem, 4vw, 2rem); background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; }
-		footer { padding: 0 0 2rem; color: #64748b; font-size: .875rem; }
-		/* Stack header items on smaller screens. */
-		@media (max-width: 560px) { .bar { align-items: flex-start; flex-direction: column; padding: 1rem 0; } }
-	</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1f3a">
+  <meta name="description" content="Pathforge: turn your interests into careers, opportunities, and projects you create yourself. Student demo.">
+  <title>Pathforge — Turn interest into action</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-	<!-- Shared site header with branding and child-template navigation. -->
-	<header>
-		<div class="bar">
-			<a class="brand" href="/">Pathforge CAC</a>
-			<nav aria-label="Main navigation">{% block navigation %}{% endblock %}</nav>
-		</div>
-	</header>
-	<!-- Child templates provide the main page content. -->
-	<main>
-		<section class="content">{% block content %}{% endblock %}</section>
-	</main>
-	<!-- Optional footer content supplied by child templates. -->
-	<footer>{% block footer %}{% endblock %}</footer>
+
+<div class="run-banner" id="runBanner" hidden>
+  <strong>This page is not running through the app yet.</strong>
+  In the terminal, run <code>python app.py</code>, then open the forwarded port 5000 (or <code>http://localhost:5000</code>). Buttons only work when the app is served.
+</div>
+<script>
+  // Opened as a file (or without Flask), the template placeholders never get filled in.
+  if (location.protocol === "file:" || document.querySelector("link[href*='url_for']")) {
+    document.getElementById("runBanner").hidden = false;
+  }
+  // If the app script never starts, buttons cannot work. Say so instead of failing silently.
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      if (document.documentElement.dataset.appReady !== "1") {
+        var b = document.getElementById("runBanner");
+        b.innerHTML = "<strong>The app script did not load.</strong> Open <code>/static/js/app.js</code> in your browser. If it shows an error or “Not Found”, the file is missing from the <code>static/js</code> folder. Then restart with <code>python app.py</code> and reload.";
+        b.hidden = false;
+      }
+    }, 1500);
+  });
+</script>
+
+<header class="topbar">
+  <a class="brand" href="#" data-page="home" aria-label="Pathforge home"><span class="brand-mark">P</span>pathforge</a>
+  <nav class="main-nav" aria-label="Main navigation">
+    <button class="nav-link active" data-page="home">Home</button>
+    <button class="nav-link" data-page="discover">Discover</button>
+    <button class="nav-link" data-page="discover" data-tab="opportunities">Opportunities</button>
+    <button class="nav-link" data-page="path">My Path</button>
+    <button class="nav-link" data-page="create">Create</button>
+    <button class="nav-link" data-page="portfolio">Portfolio</button>
+  </nav>
+  <button class="profile-pill" data-action="open-profile" id="profileButton">Set up profile</button>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section class="page active" id="page-home">
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">TURN INTEREST INTO ACTION</p>
+        <h1>From “I’m interested in…” to <em>a plan you can act on.</em></h1>
+        <p class="hero-sub">Pathforge connects your interests to careers and real opportunities, and helps you create the experience when nothing local exists yet.</p>
+        <div class="hero-actions">
+          <button class="btn btn-light" data-page="discover">Start discovering →</button>
+          <button class="btn btn-ghost" data-page="create">Create an opportunity</button>
+        </div>
+      </div>
+      <ol class="hero-flow" aria-label="The Pathforge journey">
+        <li><span>1</span>Interest</li>
+        <li><span>2</span>Career match</li>
+        <li><span>3</span>Find or create</li>
+        <li><span>4</span>Complete the steps</li>
+        <li><span>5</span>Portfolio</li>
+      </ol>
+    </div>
+
+    <div id="homeContent" class="home-content"></div>
+
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">THE JOURNEY</p>
+        <h2>One connected path, not five separate pages.</h2>
+      </div>
+    </div>
+    <div class="journey-grid">
+      <button class="journey-card" data-page="discover"><span class="step-no">01</span><strong>Discover</strong><small>Take the quiz or search careers that match your interests.</small></button>
+      <button class="journey-card" data-page="path"><span class="step-no">02</span><strong>My Path</strong><small>Follow a grade-specific roadmap and track each step.</small></button>
+      <button class="journey-card" data-page="discover" data-tab="opportunities"><span class="step-no">03</span><strong>Find</strong><small>Save opportunities that fit your grade and ZIP area.</small></button>
+      <button class="journey-card" data-page="create"><span class="step-no">04</span><strong>Create</strong><small>Build your own event with a launch kit when none exists.</small></button>
+      <button class="journey-card" data-page="portfolio"><span class="step-no">05</span><strong>Portfolio</strong><small>Document projects, hours, skills, and outcomes.</small></button>
+    </div>
+
+    <div class="cta-band">
+      <div>
+        <p class="eyebrow">NOTHING LOCAL YET?</p>
+        <h2>If the opportunity doesn’t exist, build it.</h2>
+        <p>Pathforge gives you a launch kit, a sponsor step, and a review step so the event is organized and responsibly approved.</p>
+      </div>
+      <button class="btn btn-navy" data-page="create">Start a launch kit →</button>
+    </div>
+  </section>
+
+  <!-- DISCOVER -->
+  <section class="page" id="page-discover">
+    <div class="page-intro">
+      <p class="eyebrow">EXPLORE POSSIBILITIES</p>
+      <h1>Discover your direction.</h1>
+      <p>Search careers, take the 10-question quiz for a starting point, or find opportunities that fit your grade.</p>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-action="tab" data-value="careers" role="tab">Career library</button>
+      <button class="tab" data-action="tab" data-value="quiz" role="tab">Career quiz</button>
+      <button class="tab" data-action="tab" data-value="opportunities" role="tab">Opportunities</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-careers">
+      <div class="toolbar">
+        <input type="search" data-filter="career-search" placeholder="Search careers or interests…" aria-label="Search careers">
+        <span class="muted" id="careerCount"></span>
+      </div>
+      <div class="chip-row" id="interestChips"></div>
+      <div class="card-grid" id="careerGrid"><div class="empty-state">Loading careers…</div></div>
+    </div>
+
+    <div class="tab-panel" id="tab-quiz">
+      <div class="quiz-shell" id="quizArea"></div>
+    </div>
+
+    <div class="tab-panel" id="tab-opportunities">
+      <div class="filter-bar">
+        <input type="search" data-opp-filter="q" placeholder="Search opportunities…" aria-label="Search opportunities">
+        <select data-opp-filter="level" aria-label="Level">
+          <option value="all">All levels</option>
+          <option value="High School">High School</option>
+          <option value="Student-created">Student-created</option>
+        </select>
+        <select data-opp-filter="category" id="oppCategory" aria-label="Category"><option value="all">All categories</option></select>
+      </div>
+      <div class="check-row">
+        <label class="check"><input type="checkbox" data-opp-filter="eligibleOnly"> Eligible for my grade</label>
+        <label class="check"><input type="checkbox" data-opp-filter="nearZip"> Near my ZIP area</label>
+        <label class="check"><input type="checkbox" data-opp-filter="freeOnly"> Free only</label>
+        <span class="muted" id="oppCount"></span>
+      </div>
+      <p class="legend">
+        <span class="badge badge-listed">Official listing</span> from your data file, not re-verified in this demo ·
+        <span class="badge badge-sample">Sample</span> demo listing, not a real program ·
+        <span class="badge badge-student">Student-created</span> simulated approval, not real authorization
+      </p>
+      <div class="card-grid two" id="opportunityGrid"></div>
+    </div>
+  </section>
+
+  <!-- MY PATH -->
+  <section class="page" id="page-path">
+    <div class="page-intro">
+      <p class="eyebrow">YOUR PERSONAL ROADMAP</p>
+      <h1>My Path.</h1>
+      <p>Your goal, your steps for this grade, and the opportunities you have saved.</p>
+    </div>
+    <div class="path-layout">
+      <div class="stack">
+        <div class="card" id="pathGoal"></div>
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <p class="eyebrow">PERSONALIZED PATHWAY</p>
+              <h2 id="pathTitle">Your steps</h2>
+            </div>
+            <div class="ring" id="pathRing"><span>0%</span></div>
+          </div>
+          <ol class="roadmap" id="pathSteps"></ol>
+          <p class="muted small">Click a step to mark it in progress, then done. Progress is saved in this browser.</p>
+        </div>
+      </div>
+      <aside class="stack">
+        <div class="card">
+          <div class="card-head">
+            <div><p class="eyebrow">SAVED</p><h2>Opportunities</h2></div>
+            <span class="count-badge" id="pathCount">0</span>
+          </div>
+          <div class="stack-list" id="savedList"></div>
+          <button class="btn btn-primary full" data-page="discover" data-tab="opportunities">Find opportunities →</button>
+        </div>
+        <div class="card soft">
+          <p class="eyebrow">THE SIMPLE PLAN</p>
+          <ol class="mini-steps">
+            <li><strong>Explore</strong> what a career involves.</li>
+            <li><strong>Experience</strong> a program, project, or event.</li>
+            <li><strong>Reflect</strong> and record what you built.</li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CREATE -->
+  <section class="page" id="page-create">
+    <div class="page-intro">
+      <p class="eyebrow">MAKE THE OPPORTUNITY</p>
+      <h1>Build what doesn’t exist yet.</h1>
+      <p>Describe your idea, generate a launch kit, then walk it through the sponsor and review steps. Every approval in this demo is simulated.</p>
+    </div>
+    <div class="create-layout">
+      <form class="card form-card" data-form="project" id="projectForm">
+        <div class="card-head">
+          <div><p class="eyebrow">PROJECT LAUNCH KIT</p><h2>Start with an idea.</h2></div>
+          <span class="badge badge-sample">DEMO</span>
+        </div>
+        <button type="button" class="link-btn" data-action="load-demo">Load the demo example (water quality workshop)</button>
+        <label>Project or event name
+          <input name="name" required maxlength="80" placeholder="e.g. Water Quality Awareness Workshop">
+        </label>
+        <label>What do you want to do?
+          <textarea name="description" required rows="3" maxlength="400" placeholder="Describe the idea and who it will benefit."></textarea>
+        </label>
+        <div class="form-row">
+          <label>Category
+            <select name="category" id="projectCategory" required><option value="">Choose one</option></select>
+          </label>
+          <label>Target date <input name="date" type="date"></label>
+        </div>
+        <div class="form-row">
+          <label>Estimated participants <input name="participants" type="number" min="1" max="500" placeholder="25"></label>
+          <label>ZIP code <input name="zip" inputmode="numeric" pattern="\d{5}" maxlength="5" placeholder="78664"></label>
+        </div>
+        <label>Adult sponsor or organization
+          <input name="sponsor" maxlength="80" placeholder="Name or organization (simulated)">
+        </label>
+        <label>First action step
+          <input name="firstStep" maxlength="120" placeholder="e.g. Contact the school activities coordinator">
+        </label>
+        <div class="form-actions">
+          <button type="button" class="btn btn-outline" data-action="generate-kit">Generate launch kit</button>
+          <button type="submit" class="btn btn-primary">Save draft & start workflow →</button>
+        </div>
+        <p class="form-note">Demo only. Saved in this browser. No one is contacted and no approval is real.</p>
+      </form>
+      <div class="stack">
+        <div class="card" id="kitOutput">
+          <div class="empty-state">Fill in the form and generate a launch kit to see your timeline, sponsor message, and safety notes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card workflow-card" id="workflowCard">
+      <div class="card-head">
+        <div><p class="eyebrow">PROJECT WORKFLOW</p><h2>From draft to published.</h2></div>
+        <select id="activeProject" data-select="active-project" aria-label="Choose project"></select>
+      </div>
+      <div id="workflow"></div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="page" id="page-portfolio">
+    <div class="page-intro">
+      <p class="eyebrow">YOUR WORK, IN ONE PLACE</p>
+      <h1>Impact Portfolio.</h1>
+      <p>Projects, hours, skills, and outcomes. Everything here is self-reported unless a sponsor or admin step is marked as simulated.</p>
+    </div>
+    <div class="stat-row" id="portfolioStats"></div>
+    <div class="portfolio-layout">
+      <div class="stack">
+        <div class="card" id="projectList"></div>
+      </div>
+      <aside class="stack">
+        <div class="card">
+          <p class="eyebrow">SKILLS</p>
+          <h2>What you have built.</h2>
+          <div class="chip-row" id="skillChips"></div>
+          <form data-form="skill" class="inline-form">
+            <input name="skill" maxlength="40" placeholder="Add a skill, e.g. Sampling" aria-label="Add a skill">
+            <button class="btn btn-outline" type="submit">Add</button>
+          </form>
+        </div>
+        <div class="card">
+          <p class="eyebrow">EXPORT</p>
+          <h2>Share your portfolio.</h2>
+          <button class="btn btn-primary full" data-action="print-pdf">Save as PDF (print)</button>
+          <button class="btn btn-outline full" data-action="export-json">Download JSON</button>
+          <p class="muted small">The PDF uses your browser’s print dialog and is generated on your device.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="brand-footer">pathforge</span>
+  <span>Explore. Build. Make an impact.</span>
+  <span class="footer-note">Student demo · Sample data · No real accounts, sponsor approvals, or verifications</span>
+</footer>
+
+<!-- Profile modal -->
+<div class="modal-backdrop" id="profileModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+    <button class="modal-close" data-action="close-modal" aria-label="Close">×</button>
+    <p class="eyebrow">YOUR PROFILE</p>
+    <h2 id="profileTitle">Set up your demo profile</h2>
+    <div id="profileModalBody"></div>
+  </div>
+</div>
+
+<!-- Career modal -->
+<div class="modal-backdrop" id="careerModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="careerTitle">
+    <button class="modal-close" data-action="close-modal" aria-label="Close">×</button>
+    <div id="careerBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
-    
