@@ -1,62 +1,110 @@
 {
-    "Technology Careers": [
+  "Technology Careers": [
     {
-        "id": "software_engineer",
-        "title": "Software Engineer",
-        "interests": ["Coding", "Problem Solving"],
-        "description": "Responsible for designing, developing, and maintaining software applications."
+      "id": "software_engineer",
+      "title": "Software Engineer",
+      "interests": ["Coding", "Problem Solving"],
+      "description": "Responsible for designing, developing, and maintaining software applications.",
+      "education": "Bachelor's degree in computer science or a related field, or equivalent experience with a strong project portfolio.",
+      "areas": ["technology", "engineering"]
     },
     {
-        "id": "data_scientist",
-        "title": "Data Scientist",
-        "interests": ["Statistics", "Machine Learning"],
-        "description": "Responsible for analyzing and interpreting complex data to help drive business decisions."
+      "id": "data_scientist",
+      "title": "Data Scientist",
+      "interests": ["Statistics", "Machine Learning"],
+      "description": "Responsible for analyzing and interpreting complex data to help drive business decisions.",
+      "education": "Bachelor's degree in statistics, mathematics, computer science, or a related field; many roles prefer a master's.",
+      "areas": ["technology", "research", "business"]
     },
     {
-        "id": "artificial_intelligence_engineer",
-        "title": "Artificial Intelligence Engineer",
-        "interests": ["Machine Learning", "Deep Learning"],
-        "description": "Responsible for developing and implementing AI algorithms and models."
+      "id": "artificial_intelligence_engineer",
+      "title": "Artificial Intelligence Engineer",
+      "interests": ["Machine Learning", "Deep Learning"],
+      "description": "Responsible for developing and implementing AI algorithms and models.",
+      "education": "Bachelor's or master's degree in computer science or machine learning, plus strong programming skills.",
+      "areas": ["technology", "research"]
     },
     {
-        "id": "ux_designer",
-        "title": "UX Designer",
-        "interests": ["User Research", "Prototyping"],
-        "description": "Responsible for creating intuitive and engaging user experiences."
+      "id": "ux_designer",
+      "title": "UX Designer",
+      "interests": ["User Research", "Prototyping"],
+      "description": "Responsible for creating intuitive and engaging user experiences.",
+      "education": "Bachelor's degree in design or human-computer interaction, or a strong portfolio of user research and design work.",
+      "areas": ["design", "technology", "marketing"]
     }
-    ],
-    "Medicine Careers": [
+  ],
+  "Medicine Careers": [
     {
-        "id": "Doctor",
-        "title": "Doctor",
-        "interests": ["Patient Care", "Medical Research"],
-        "description": "Responsible for diagnosing and treating patients."
+      "id": "Doctor",
+      "title": "Doctor",
+      "interests": ["Patient Care", "Medical Research"],
+      "description": "Responsible for diagnosing and treating patients.",
+      "education": "Bachelor's degree, medical school (MD or DO), residency training, and state licensure.",
+      "areas": ["healthcare", "research"]
     },
     {
-        "id": "Nurse",
-        "title": "Nurse",
-        "interests": ["Patient Care", "Clinical Skills"],
-        "description": "Responsible for providing direct patient care and support."
+      "id": "Nurse",
+      "title": "Nurse",
+      "interests": ["Patient Care", "Clinical Skills"],
+      "description": "Responsible for providing direct patient care and support.",
+      "education": "Nursing diploma, associate, or bachelor's degree (BSN), plus national licensure exam.",
+      "areas": ["healthcare", "social-services"]
     },
     {
-        "id": "Psychologist",
-        "title": "Psychologist",
-        "interests": ["Human Behavior", "Therapy"],
-        "description": "Responsible for studying and treating mental health conditions."
+      "id": "Psychologist",
+      "title": "Psychologist",
+      "interests": ["Human Behavior", "Therapy"],
+      "description": "Responsible for studying and treating mental health conditions.",
+      "education": "Doctoral degree (PhD or PsyD) in psychology and state licensure.",
+      "areas": ["healthcare", "social-services", "education"]
     }
-    ],
-    "Creative Arts Careers": [
+  ],
+  "Creative Arts Careers": [
     {
-        "id": "Graphic Designer",
-        "title": "Graphic Designer",
-        "interests": ["Visual Arts", "Branding"],
-        "description": "Responsible for creating visual concepts and designs for various media."
+      "id": "Graphic Designer",
+      "title": "Graphic Designer",
+      "interests": ["Visual Arts", "Branding"],
+      "description": "Responsible for creating visual concepts and designs for various media.",
+      "education": "Bachelor's degree in graphic design or a related field, or a strong portfolio.",
+      "areas": ["design", "arts", "marketing"]
     },
     {
-        "id": "Writer",
-        "title": "Writer",
-        "interests": ["Storytelling", "Content Creation"],
-        "description": "Responsible for creating written content for various platforms."
+      "id": "Writer",
+      "title": "Writer",
+      "interests": ["Storytelling", "Content Creation"],
+      "description": "Responsible for creating written content for various platforms.",
+      "education": "A strong writing portfolio; many writers study English, journalism, or a related field.",
+      "areas": ["arts", "media", "marketing"]
     }
-    ]
+  ],
+  "Environment & Science Careers": [
+    {
+      "id": "environmental_scientist",
+      "title": "Environmental Scientist",
+      "interests": ["Environmental Science", "Field Research", "Water Quality"],
+      "description": "Studies air, water, soil, and ecosystems to understand pollution and recommend ways to protect natural resources.",
+      "education": "Bachelor's degree in environmental science, biology, chemistry, or a related field; graduate study is common for research roles.",
+      "areas": ["environment", "research"]
+    }
+  ],
+  "Engineering & Trades Careers": [
+    {
+      "id": "civil_engineer",
+      "title": "Civil Engineer",
+      "interests": ["Infrastructure", "Sustainable Design"],
+      "description": "Plans, designs, and oversees roads, water systems, and buildings that communities rely on.",
+      "education": "Bachelor's degree in civil engineering, followed by supervised experience and a professional license.",
+      "areas": ["engineering", "environment", "skilled-trades"]
+    }
+  ],
+  "Education Careers": [
+    {
+      "id": "teacher",
+      "title": "Teacher",
+      "interests": ["Teaching", "Mentoring"],
+      "description": "Plans lessons and supports students so they can learn, grow, and build confidence.",
+      "education": "Bachelor's degree and a teaching certificate; requirements vary by state.",
+      "areas": ["education", "social-services"]
+    }
+  ]
 }
