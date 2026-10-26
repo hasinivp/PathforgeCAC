@@ -1,0 +1,75 @@
+{
+    "categories": ["STEM", "Environment", "Community service", "Arts & culture", "Career exploration", "Other"],
+    "tagsByCategory": {
+        "STEM": ["research", "technology"],
+        "Environment": ["environment", "research"],
+        "Community service": ["social-services"],
+        "Arts & culture": ["arts"],
+        "Career exploration": ["business"],
+        "Other": []
+    },
+    "phases": [
+        {
+            "title": "Plan",
+            "weeks": "Weeks 1–2",
+            "tasks": [
+                "Define the goal, the audience, and the expected number of participants",
+                "Choose a date, a location, and a backup plan",
+                "Confirm your first action step"
+            ]
+        },
+        {
+            "title": "Get approval",
+            "weeks": "Weeks 2–4",
+            "tasks": [
+                "Ask your school or organization for permission to host",
+                "Collect written consent for any participant under 18",
+                "Confirm adult supervision for every session"
+            ]
+        },
+        {
+            "title": "Prepare",
+            "weeks": "Weeks 4–6",
+            "tasks": [
+                "Gather materials and build a simple budget",
+                "Write a safety plan that fits the activity",
+                "Create a sign-up or RSVP page"
+            ]
+        },
+        {
+            "title": "Run and document",
+            "weeks": "Week 7 onward",
+            "tasks": [
+                "Run the event and record attendance and hours",
+                "Collect feedback from participants",
+                "Add outcomes and photos (with permission) to your Portfolio"
+            ]
+        }
+    ],
+    "categoryNotes": {
+        "Environment": [
+            "Water sampling: wear gloves, use the containers your sponsor provides, and never drink or taste samples.",
+            "Outdoor sites: get landowner or park permission before entering, and bring a first-aid kit."
+        ],
+        "STEM": [
+            "Lab-style activities: review chemical and equipment rules with your sponsor before the event."
+        ]
+    },
+    "sponsorMessage": "Hello {sponsor}, I am a student planning \"{name}\" on {date} for about {participants} participants. The goal is: {description} Would you be willing to serve as the adult sponsor and confirm that you will supervise the activity? Thank you, {student}.",
+    "outcomeSuggestions": [
+        "Number of participants who completed the activity",
+        "Something new participants learned",
+        "A change you made, such as a cleanup, a report, or a follow-up event",
+        "Feedback quotes shared with permission"
+    ],
+    "demoExample": {
+        "name": "Water Quality Awareness Workshop",
+        "category": "Environment",
+        "description": "Teach classmates how water quality is tested and why it matters for our neighborhood, using safe demonstration kits.",
+        "date": "2026-12-05",
+        "participants": "25",
+        "sponsor": "Sample science teacher (simulated)",
+        "firstStep": "Contact the school activities coordinator",
+        "zip": "78664"
+    }
+}
