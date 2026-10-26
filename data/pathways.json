@@ -1,0 +1,50 @@
+{
+    "environmental_scientist": {
+        "9": [
+            "Join or start an environment or science club at school",
+            "Learn how water and air quality are measured with a library book or free online course",
+            "Talk with a science teacher about projects you can do this year",
+            "Pick one local environmental issue you care about and write down what you want to learn"
+        ],
+        "10": [
+            "Take biology or chemistry and ask about lab opportunities",
+            "Join a local water-quality or creek-monitoring volunteer day",
+            "Run a small investigation and record your data carefully",
+            "Add your first hands-on experience to your Portfolio"
+        ],
+        "11": [
+            "Apply for a summer research or mentorship program",
+            "Complete an independent research or science fair project",
+            "Interview an environmental scientist about their daily work",
+            "Document results and outcomes in your Portfolio"
+        ],
+        "12": [
+            "Shortlist college programs in environmental science or related fields",
+            "Ask a teacher or mentor for a recommendation letter",
+            "Lead or co-create a community environmental event for experience",
+            "Export your Portfolio to share with programs and mentors"
+        ]
+    },
+    "default": {
+        "9": [
+            "Explore {title} through a library book, documentary, or career interview",
+            "Join a club or activity connected to {title}",
+            "Write down one skill you want to build this year"
+        ],
+        "10": [
+            "Take a class that builds the core skills for {title}",
+            "Find one hands-on experience related to {title}",
+            "Add what you learned to your Portfolio"
+        ],
+        "11": [
+            "Apply for a summer program or mentorship connected to {title}",
+            "Interview someone who works as a {title}",
+            "Document your results in your Portfolio"
+        ],
+        "12": [
+            "Compare education paths for {title}",
+            "Ask a teacher or mentor for guidance on next steps",
+            "Export your Portfolio to share with programs and mentors"
+        ]
+    }
+}
