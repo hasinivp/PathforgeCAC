@@ -6,10 +6,50 @@
                     "name": "Microsoft Discovery Program",
                     "link": "https://careers.microsoft.com/v2/global/en/discoveryprogram",
                     "age/grade": "12th",
-                    "location": "Washington or Georgia"
+                    "location": "Washington or Georgia",
+                    "tags": ["technology", "research"]
+                }
+            ]
+        },
+        {
+            "Environment & Science": [
+                {
+                    "name": "Water Quality Research Assistant (Sample)",
+                    "status": "sample",
+                    "description": "Help collect and log water samples for a local monitoring study under the guidance of an adult scientist. Demo listing only: no real program is attached.",
+                    "age/grade": "10th–12th",
+                    "location": "Central Texas (sample)",
+                    "zip": "78664",
+                    "cost": "Free",
+                    "deadline": "Rolling",
+                    "link": "",
+                    "tags": ["environment", "research"]
+                },
+                {
+                    "name": "Creek Monitoring Volunteer Day (Sample)",
+                    "status": "sample",
+                    "description": "A half-day volunteer event that records basic creek conditions with trained leaders. Demo listing only.",
+                    "age/grade": "9th–12th",
+                    "location": "Round Rock area (sample)",
+                    "zip": "78681",
+                    "cost": "Free",
+                    "deadline": "Rolling",
+                    "link": "",
+                    "tags": ["environment", "social-services"]
+                },
+                {
+                    "name": "Summer Environmental Data Mentorship (Sample)",
+                    "status": "sample",
+                    "description": "Learn spreadsheet analysis and environmental datasets in a remote mentorship format. Demo listing only.",
+                    "age/grade": "10th–11th",
+                    "location": "Online (sample)",
+                    "zip": "",
+                    "cost": "Varies",
+                    "deadline": "Not listed",
+                    "link": "",
+                    "tags": ["research", "technology"]
                 }
             ]
         }
-        
     ]
 }
