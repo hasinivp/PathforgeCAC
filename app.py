@@ -1,47 +1,38 @@
 import json
-from flask import Flask, render_template
 from pathlib import Path
 
+from flask import Flask, jsonify, render_template
+
 app = Flask(__name__)
-careers_file = Path("data") / "careers.json"
+ROOT = Path(__file__).resolve().parent
+DATA = ROOT / "data"
+
+# Only these JSON files are served to the frontend.
+ALLOWED_DATA = {"careers", "opportunities", "quiz", "pathways", "projects"}
+
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
-@app.route("/api/health", methods=["GET"])
-def health_check():
-    return {"status": "healthy",
-            "app":"Pathforge"}
+@app.route("/api/<name>")
+def get_data(name):
+    if name not in ALLOWED_DATA:
+        return jsonify({"error": "Not found"}), 404
+    file_path = DATA / f"{name}.json"
+    if not file_path.is_file():
+        return jsonify({"error": f"{name}.json was not found"}), 404
+    try:
+        return jsonify(json.loads(file_path.read_text(encoding="utf-8")))
+    except json.JSONDecodeError as exc:
+        return jsonify({"error": f"{name}.json contains invalid JSON", "details": str(exc)}), 500
 
-@app.route("/api/careers")
-def careers():
-    
-    if careers_file.is_file():
-        with open(careers_file) as f:
-            careers_data = json.load(f)
-        return careers_data
-    else:
-        return {"error": "Careers data not found."}, 404
 
-@app.route("/api/careers/<career_id>", methods=["GET"])
-def career_detail(career_id):
-    if careers_file.is_file():
-        with open(careers_file) as f:
-            careers_data = json.load(f)
-    else:
-        return {"error": "Careers data not found."}, 404
-    for category, career_list in careers_data.items():
-        career = next(
-            (c for c in career_list if c["id"] == career_id),
-            None
-        )
+@app.route("/api/health")
+def health():
+    return jsonify({"status": "healthy", "app": "Pathforge"})
 
-        if career is not None:
-            return career
 
-    return {"error": "Career not found."}, 404
-
-if(__name__ == "__main__"):
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
